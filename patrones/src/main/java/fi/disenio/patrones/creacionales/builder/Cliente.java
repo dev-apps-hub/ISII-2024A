@@ -4,6 +4,9 @@
  */
 package fi.disenio.patrones.creacionales.builder;
 
+import fi.disenio.patrones.creacionales.builder.factory.BuilderFactory;
+import fi.disenio.patrones.creacionales.builder.factory.TipoBuilder;
+
 /**
  *
  * @author jcs
@@ -11,8 +14,8 @@ package fi.disenio.patrones.creacionales.builder;
 public class Cliente {
     public static void main(String[] args) {
         Supervisor supervisor = new Supervisor();
-        BuilderAutomovil manual = new AutomovilManualBuilder();
-        BuilderAutomovil automatico = new AutomovilAutomaticoBuilder();
+        BuilderAutomovil manual = BuilderFactory.crearBuilder(TipoBuilder.MANUAL);
+        BuilderAutomovil automatico = BuilderFactory.crearBuilder(TipoBuilder.AUTOMATICO);
         
         
         supervisor.setBuilder(manual);
